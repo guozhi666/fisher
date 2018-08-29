@@ -1,13 +1,21 @@
-#-*- coding:utf-8 -*-
-#  api  https://api.douban.com/v2/book/isbn/9787111521181
+from app import create_app
+from app.models import db
+from flask import session
+from datetime import timedelta
 
+__author__ = "七月"
 
-from flask import Flask
-#from config import DEBUG   #引用配置文件的第一种方法
+app = create_app()
 
+# with app.app_context():
+#     db.drop_all()
 
-app = Flask(__name__)
-app.config.from_object('config')  #引用配置文件的第二种方法
+# if app.config['CHECK_DB']:
+with app.app_context():
+    db.create_all()
 
 if __name__ == '__main__':
-    app.run()
+    # 如果要使用vscode调试，需要将debug设置为False，否则无法命中请求断点
+    app.run(host='0.0.0.0', debug=True)
+
+
