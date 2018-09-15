@@ -17,7 +17,6 @@ from sqlalchemy.orm import relationship
 from app.models.base import db, Base
 from app import login_manager
 
-
 class User(UserMixin, Base):
     __tablename__ = 'user'
     # __bind_key__ = 'fisher'
@@ -121,7 +120,6 @@ class User(UserMixin, Base):
             email=self.email,
             send_receive=str(self.send_counter) + '/' + str(self.receive_counter)
         )
-
 @login_manager.user_loader
 def get_user(uid):
     return User.query.get(int(uid))

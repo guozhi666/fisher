@@ -3,7 +3,6 @@ from sqlalchemy import Column, String, Integer, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 from app.models.base import Base
 
-
 class Wish(Base):
     __tablename__ = 'wish'
 
@@ -18,4 +17,3 @@ class Wish(Base):
         yushu_book = YuShuBook()
         yushu_book.search_by_isbn(self.isbn)
         return yushu_book
-

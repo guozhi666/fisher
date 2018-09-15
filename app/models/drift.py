@@ -3,7 +3,6 @@ from sqlalchemy import Column, String, Integer, ForeignKey, SmallInteger
 from sqlalchemy.orm import relationship
 from app.models.base import Base
 
-
 class Drift(Base):
     """
         一次具体的交易信息

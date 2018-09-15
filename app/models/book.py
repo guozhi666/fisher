@@ -3,7 +3,6 @@ from sqlalchemy import Column, String
 from sqlalchemy import Integer
 from app.models.base import Base
 
-
 class Book(Base):
     """
         一些属性定义重复性比较大，元类可以解决这个问题

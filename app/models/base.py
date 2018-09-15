@@ -6,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy as _SQLAlchemy, BaseQuery
 
 __all__ = ['db', 'Base']
 
-
 class SQLAlchemy(_SQLAlchemy):
     @contextmanager
     def auto_commit(self, throw=True):
@@ -27,11 +26,9 @@ class Query(BaseQuery):
 
 db = SQLAlchemy(query_class=Query)
 
-
 # class BaseMixin(object):
 #     def __getitem__(self, key):
 #         return getattr(self, key)
-
 
 class Base(db.Model):
     __abstract__ = True
@@ -55,7 +52,6 @@ class Base(db.Model):
         for key, value in attrs.items():
             if hasattr(self, key) and key != 'id':
                 setattr(self, key, value)
-
 
 class BaseNoCreateTime(db.Model):
     __abstract__ = True
